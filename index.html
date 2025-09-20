@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Undangan Aqiqah — Aqila Arumi Khairunnisa</title>
+  <meta name="description" content="Undangan digital aqiqah Aqila Arumi Khairunnisa. Sabtu, 27 September 2025 di Jl. Purwodadi No.89, Pekanbaru."/>
+  <meta property="og:title" content="Undangan Aqiqah — Aqila Arumi Khairunnisa" />
+  <meta property="og:description" content="Sabtu, 27 September 2025 • Jl. Purwodadi No.89, Pekanbaru" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="" />
+
+  <!-- Tailwind CSS (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="pattern min-h-screen">
+  <!-- Floating petals background -->
+  <div id="petals"></div>
+
+  <!-- Sticky top nav -->
+  <header id="nav" class="fixed top-0 inset-x-0 z-40 py-3 transition">
+    <nav class="mx-auto max-w-5xl px-5 flex items-center justify-between">
+      <a href="#" class="serif text-xl font-semibold">Aqiqah Aqila</a>
+      <div class="hidden md:flex gap-4 text-sm">
+        <a href="#home" class="hover:text-sky-700">Beranda</a>
+        <a href="#acara" class="hover:text-sky-700">Acara</a>
+        <a href="#lokasi" class="hover:text-sky-700">Lokasi</a>
+        <a href="#rsvp" class="hover:text-sky-700">RSVP</a>
+      </div>
+      <button id="shareBtn" class="btn btn-outline text-xs">Bagikan</button>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="hero relative pt-28 pb-24"> 
+    <div class="absolute inset-0"></div>
+    <div class="relative max-w-3xl mx-auto px-6 text-center text-white">
+      <span class="badge mx-auto mb-4 text-slate-700">Undangan Aqiqah</span>
+      <h1 class="script text-6xl md:text-7xl mb-2">Aqila Arumi Khairunnisa</h1>
+      <p class="text-slate-100/90 md:text-lg">Putri dari <span class="font-semibold">M. Khairul Anam</span> & <span class="font-semibold">Bintari Setiya Ningrum</span></p>
+      <div class="mt-6 flex items-center justify-center gap-3">
+        <div class="glass rounded-2xl px-4 py-3">
+          <div class="text-sm text-slate-800">Hari/Tanggal</div>
+          <div class="font-semibold">Sabtu, 27 September 2025</div>
+        </div>
+        <div class="glass rounded-2xl px-4 py-3">
+          <div class="text-sm text-slate-800">Tempat</div>
+          <div class="font-semibold">Jl. Purwodadi No.89, Pekanbaru</div>
+        </div>
+      </div>
+
+      <p id="dear" class="mt-8 text-slate-100/90">Kepada Yth. <span class="font-semibold">Bapak/Ibu/Saudara/i</span></p>
+
+      <div class="mt-8">
+        <a href="#acara" class="btn btn-primary rounded-full">Buka Undangan</a>
+      </div>
+
+      <div class="mt-10">
+        <p class="uppercase tracking-widest text-xs text-slate-200/80">Acara dimulai dalam</p>
+        <div id="countdown" class="mt-3 text-2xl md:text-3xl font-semibold"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detail Acara -->
+  <section id="acara" class="py-16">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-8 items-stretch">
+        <div class="glass rounded-3xl p-8 reveal">
+          <h2 class="serif text-3xl font-semibold mb-4">Bismillahirrahmanirrahim</h2>
+          <p class="leading-8 text-slate-700">Dengan memohon rahmat dan ridha Allah Subhanahu wa Ta’ala, kami bermaksud menyelenggarakan <span class="font-semibold">aqiqah</span> putri kami tercinta, <span class="font-semibold">Aqila Arumi Khairunnisa</span>. Merupakan kehormatan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa serta restu.</p>
+          <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="border rounded-2xl p-4">
+              <div class="text-sm text-slate-500">Hari/Tanggal</div>
+              <div class="font-semibold">Sabtu, 27 September 2025</div>
+            </div>
+            <div class="border rounded-2xl p-4">
+              <div class="text-sm text-slate-500">Waktu</div>
+              <div class="font-semibold">10.00 WIB — selesai</div>
+            </div>
+            <div class="border rounded-2xl p-4 sm:col-span-2">
+              <div class="text-sm text-slate-500">Tempat</div>
+              <div class="font-semibold">Jl. Purwodadi No.89, Pekanbaru</div>
+            </div>
+          </div>
+          <p class="mt-6 text-sm text-slate-500">Turut mengundang: <span class="font-medium">M. Khairul Anam</span> & <span class="font-medium">Bintari Setiya Ningrum</span></p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a id="mapsBtn" target="_blank" class="btn btn-outline rounded-full" href="https://www.google.com/maps/search/?api=1&query=Jl.+Purwodadi+No.89+Pekanbaru">Buka Map</a>
+            <button id="calendarBtn" class="btn btn-primary rounded-full">Simpan ke Kalender</button>
+          </div>
+        </div>
+        <div class="reveal">
+          <div class="relative overflow-hidden rounded-3xl shadow-lg">
+            <img alt="Ornamen elegan" src="assets/aqiqah.png" class="w-full h-[360px] object-cover"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            <div class="absolute bottom-0 p-6 text-white">
+              <div class="text-sm uppercase tracking-widest text-white/80">Acara Aqiqah</div>
+              <div class="serif text-2xl font-semibold">Aqila Arumi Khairunnisa</div>
+            </div>
+          </div>
+          <div class="mt-6 glass rounded-3xl p-6">
+            <h3 class="serif text-2xl font-semibold mb-2">Doa</h3>
+            <p class="text-slate-700 leading-7 italic">“Semoga Aqila menjadi anak yang shalihah, sehat, berbakti kepada orang tua, serta bermanfaat bagi agama, bangsa, dan sesama.”</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lokasi -->
+  <section id="lokasi" class="py-16 bg-white/60">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div class="reveal">
+          <h2 class="serif text-3xl font-semibold mb-4">Lokasi Acara</h2>
+          <p class="text-slate-700 leading-8">Alamat: <span class="font-semibold">Jl. Purwodadi No.89, Pekanbaru</span>. Klik tombol peta untuk panduan arah. Parkir tersedia di sekitar lokasi.</p>
+          <div class="mt-6 flex gap-3">
+            <a target="_blank" class="btn btn-primary rounded-full" href="https://www.google.com/maps/search/?api=1&query=Jl.+Purwodadi+No.89+Pekanbaru">Buka di Google Maps</a>
+            <a target="_blank" class="btn btn-outline rounded-full" href="https://waze.com/ul?q=Jl.%20Purwodadi%20No.89%20Pekanbaru">Buka di Waze</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section id="rsvp" class="py-16">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="glass rounded-3xl p-8 reveal">
+        <h2 class="serif text-3xl font-semibold mb-4">Konfirmasi Kehadiran</h2>
+        <p class="text-slate-700 mb-6">Mohon konfirmasi kehadiran agar kami dapat menyiapkan jamuan dengan baik. Terima kasih 😊</p>
+        <form id="rsvpForm" class="grid md:grid-cols-2 gap-4">
+          <div>
+            <label class="text-sm text-slate-600">Nama</label>
+            <input id="name" class="w-full mt-1 px-4 py-3 rounded-2xl border outline-none focus:ring-2 focus:ring-sky-300" placeholder="Nama Anda"/>
+          </div>
+          <div>
+            <label class="text-sm text-slate-600">Jumlah Tamu</label>
+            <input id="count" type="number" min="1" class="w-full mt-1 px-4 py-3 rounded-2xl border outline-none focus:ring-2 focus:ring-sky-300" placeholder="1"/>
+          </div>
+          <div class="md:col-span-2">
+            <label class="text-sm text-slate-600">Ucapan/Doa</label>
+            <textarea id="message" rows="3" class="w-full mt-1 px-4 py-3 rounded-2xl border outline-none focus:ring-2 focus:ring-sky-300" placeholder="Tulis doa untuk Aqila…"></textarea>
+          </div>
+          <div class="md:col-span-2 flex justify-center mt-2">
+            <button type="button" id="waBtn" class="btn btn-primary rounded-full">Kirim via WhatsApp</button>
+          </div>
+          <p class="text-xs text-slate-500 mt-3">Catatan: ganti nomor WhatsApp pada skrip agar formulir terkirim ke kontak Anda.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rekening -->
+  <section id="rekening" class="py-16 bg-slate-100">
+    <div class="max-w-3xl mx-auto px-6 text-center glass rounded-3xl p-8 reveal">
+      <h2 class="serif text-3xl font-semibold mb-4">Doa & Hadiah</h2>
+      <p class="mb-4">Doa restu Anda merupakan karunia yang sangat berarti. Jika berkenan memberikan hadiah dalam bentuk lain, dapat melalui rekening berikut:</p>
+      <div class="font-mono text-lg font-semibold">7054105015</div>
+      <div class="font-semibold">BSI</div>
+      <div class="font-medium">a.n. M. Khairul Anam</div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-14">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <p class="script text-4xl mb-2">Terima kasih</p>
+      <p class="text-slate-600">Kami sekeluarga memohon doa agar Aqila tumbuh menjadi anak yang shalihah.</p>
+      <div class="mt-6 text-sm text-slate-400">© 2025 Keluarga M. Khairul Anam & Bintari Setiya Ningrum</div>
+    </div>
+  </footer>
+
+  <audio id="bgm" loop autoplay>
+    <source src="assets/Maher Zain - Rahmatun Lil’Alameen.mp3" type="audio/mpeg">
+  </audio>
+  <button id="musicToggle" class="music-btn btn btn-primary rounded-full">♫ Musik</button>
+
+  <script src="script.js"></script>
+  <script>
+    // Auto-play fallback setelah interaksi pertama user
+    document.addEventListener('click', function playOnce(){
+      const bgm = document.getElementById('bgm');
+      if(bgm && bgm.paused){
+        bgm.play().catch(()=>{});
+      }
+      document.removeEventListener('click', playOnce);
+    });
+  </script>
+</body>
+</html>

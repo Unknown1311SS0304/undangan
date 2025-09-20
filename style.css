@@ -1,0 +1,42 @@
+/* ====== Base fonts & colors ====== */
+:root{
+  --brand:#0ea5e9;
+  --brand-dark:#0369a1;
+  --soft:#f0f9ff;
+  --ink:#0f172a;
+}
+body{font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial; color:var(--ink)}
+.serif{font-family:'Playfair Display', serif}
+.script{font-family:'Great Vibes', cursive}
+
+/* ====== Background, hero, ornaments ====== */
+.pattern{
+  background: radial-gradient(ellipse at top left, #e0f2fe 0, transparent 50%),
+              radial-gradient(ellipse at bottom right, #fef9c3 0, transparent 50%),
+              linear-gradient(180deg, #ffffff, #f8fafc);
+}
+.hero{ 
+  background: linear-gradient( to bottom, rgba(2,6,23,.25), rgba(2,6,23,.65)),
+              url('https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+}
+.badge{ display:inline-flex; align-items:center; gap:.5rem; padding:.5rem 1rem; border-radius:9999px; background:rgba(255,255,255,.9); }
+.glass{ backdrop-filter: blur(8px); background:rgba(255,255,255,.65); }
+.blur-nav{ backdrop-filter:saturate(180%) blur(10px); background:rgba(255,255,255,.7); }
+
+/* ====== Buttons ====== */
+.btn{ display:inline-flex; align-items:center; justify-content:center; gap:.5rem; padding:.75rem 1.25rem; border-radius:1rem; font-weight:600; transition:.2s }
+.btn-primary{ background:var(--brand); color:#fff; box-shadow:0 10px 30px -10px rgba(14,165,233,.7) }
+.btn-primary:hover{ background:var(--brand-dark) }
+.btn-outline{ border:1px solid var(--brand-dark); color:var(--brand-dark) }
+.music-btn{ position:fixed; right:1rem; bottom:1rem; z-index:50 }
+
+/* ====== Reveal animation ====== */
+.reveal{ opacity:0; transform: translateY(16px); transition: all .7s ease }
+.reveal.show{ opacity:1; transform: translateY(0) }
+
+/* ====== Floating petals ====== */
+.petal{ position:absolute; width:10px; height:10px; border-radius:10px; background:#fca5a5; opacity:.7; filter:blur(.2px); animation: float 10s linear infinite }
+@keyframes float{
+  0%{ transform: translateY(-10vh) translateX(0) rotate(0) }
+  100%{ transform: translateY(110vh) translateX(30px) rotate(180deg) }
+}
