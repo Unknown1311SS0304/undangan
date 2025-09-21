@@ -32,27 +32,13 @@
         <a href="#lokasi" class="hover:text-sky-700 transition">Lokasi</a>
         <a href="#rsvp" class="hover:text-sky-700 transition">RSVP</a>
       </div>
-      <!-- Mobile Hamburger -->
-      <button id="menuToggle" class="md:hidden flex flex-col gap-1.5">
-        <span class="w-6 h-0.5 bg-gray-700"></span>
-        <span class="w-6 h-0.5 bg-gray-700"></span>
-        <span class="w-6 h-0.5 bg-gray-700"></span>
-      </button>
-      <button id="shareBtn" class="hidden md:inline-block btn btn-outline text-xs">Bagikan</button>
+      <!-- Tombol Bagikan -->
+      <button id="shareBtn" class="btn btn-outline text-xs">Bagikan</button>
     </nav>
-    <!-- Mobile Menu List -->
-    <div id="mobileMenu" class="hidden flex-col px-5 pb-4 bg-white shadow-md md:hidden">
-      <a href="#home" class="py-2 border-b hover:text-sky-700">Beranda</a>
-      <a href="#acara" class="py-2 border-b hover:text-sky-700">Acara</a>
-      <a href="#lokasi" class="py-2 border-b hover:text-sky-700">Lokasi</a>
-      <a href="#rsvp" class="py-2 hover:text-sky-700">RSVP</a>
-      <button id="shareBtnMobile" class="btn btn-outline text-xs mt-3">Bagikan</button>
-    </div>
   </header>
 
   <!-- Hero -->
   <section id="home" class="hero relative pt-28 pb-24"> 
-    <div class="absolute inset-0"></div>
     <div class="relative max-w-3xl mx-auto px-6 text-center text-white">
       <span class="badge mx-auto mb-4 text-slate-700">Undangan Aqiqah</span>
       <h1 class="script text-5xl md:text-7xl mb-2">Aqila Arumi Khairunnisa</h1>
@@ -85,7 +71,7 @@
   <section id="acara" class="py-16">
     <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
       <div class="glass rounded-3xl p-8 reveal">
-        <h2 class="serif text-3xl font-semibold mb-4">Bismillahirrahmanirrahim</h2>
+        <h2 class="serif bismillah font-semibold mb-4">Bismillahirrahmanirrahim</h2>
         <p class="leading-8 text-slate-700">Dengan memohon rahmat dan ridha Allah Subhanahu wa Ta’ala, kami bermaksud menyelenggarakan <span class="font-semibold">aqiqah</span> putri kami tercinta, <span class="font-semibold">Aqila Arumi Khairunnisa</span>. Merupakan kehormatan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa serta restu.</p>
         <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div class="border rounded-2xl p-4 text-center md:text-left">
@@ -103,8 +89,8 @@
         </div>
         <p class="mt-6 text-sm text-slate-500">Turut mengundang: <span class="font-medium">M. Khairul Anam</span> & <span class="font-medium">Bintari Setiya Ningrum</span></p>
         <div class="mt-6 flex flex-wrap justify-center md:justify-start gap-3">
-          <a id="mapsBtn" target="_blank" class="btn btn-outline rounded-full transform transition hover:scale-105" href="https://www.google.com/maps/search/?api=1&query=Jl.+Purwodadi+No.89+Pekanbaru">Buka Map</a>
-          <button id="calendarBtn" class="btn btn-primary rounded-full transform transition hover:scale-105">Simpan ke Kalender</button>
+          <a target="_blank" class="btn btn-outline rounded-full" href="https://www.google.com/maps/search/?api=1&query=Jl.+Purwodadi+No.89+Pekanbaru">Buka Map</a>
+          <button id="calendarBtn" class="btn btn-primary rounded-full">Simpan ke Kalender</button>
         </div>
       </div>
       <div class="reveal flex flex-col justify-between">
@@ -131,8 +117,8 @@
         <h2 class="serif text-3xl font-semibold mb-4">Lokasi Acara</h2>
         <p class="text-slate-700 leading-8">Alamat: <span class="font-semibold">Jl. Purwodadi No.89, Pekanbaru</span>. Klik tombol peta untuk panduan arah. Parkir tersedia di sekitar lokasi.</p>
         <div class="mt-6 flex flex-wrap justify-center md:justify-start gap-3">
-          <a target="_blank" class="btn btn-primary rounded-full transform transition hover:scale-105" href="https://www.google.com/maps/search/?api=1&query=Jl.+Purwodadi+No.89+Pekanbaru">Buka di Google Maps</a>
-          <a target="_blank" class="btn btn-outline rounded-full transform transition hover:scale-105" href="https://waze.com/ul?q=Jl.%20Purwodadi%20No.89%20Pekanbaru">Buka di Waze</a>
+          <a target="_blank" class="btn btn-primary rounded-full" href="https://www.google.com/maps/search/?api=1&query=Jl.+Purwodadi+No.89+Pekanbaru">Buka di Google Maps</a>
+          <a target="_blank" class="btn btn-outline rounded-full" href="https://waze.com/ul?q=Jl.%20Purwodadi%20No.89%20Pekanbaru">Buka di Waze</a>
         </div>
       </div>
     </div>
@@ -158,7 +144,7 @@
             <textarea id="message" rows="3" class="w-full mt-1 px-4 py-3 rounded-2xl border outline-none focus:ring-2 focus:ring-sky-300" placeholder="Tulis doa untuk Aqila…"></textarea>
           </div>
           <div class="flex justify-center mt-2">
-            <button type="button" id="waBtn" class="btn btn-primary rounded-full transform transition hover:scale-105">Kirim via WhatsApp</button>
+            <button type="button" id="waBtn" class="btn btn-primary rounded-full">Kirim via WhatsApp</button>
           </div>
           <p class="text-xs text-slate-500 mt-3 text-center">Pesan konfirmasi akan dikirim ke WhatsApp keluarga.</p>
         </form>
@@ -186,6 +172,7 @@
     </div>
   </footer>
 
+  <!-- Audio & Musik -->
   <audio id="bgm" loop autoplay>
     <source src="assets/Maher Zain - Rahmatun Lil’Alameen.mp3" type="audio/mpeg">
   </audio>
@@ -200,19 +187,6 @@
         bgm.play().catch(()=>{});
       }
       document.removeEventListener('click', playOnce);
-    });
-
-    // Toggle mobile menu
-    const menuToggle = document.getElementById('menuToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-    menuToggle?.addEventListener('click', ()=>{
-      mobileMenu.classList.toggle('hidden');
-    });
-
-    // Share button mobile
-    const shareBtnMobile = document.getElementById('shareBtnMobile');
-    shareBtnMobile?.addEventListener('click', ()=>{
-      document.getElementById('shareBtn').click();
     });
   </script>
 </body>
