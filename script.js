@@ -1,109 +1,180 @@
-// ===== Personalization via ?to=Nama =====
-const params = new URLSearchParams(location.search);
-const to = params.get('to');
-if (to) {
-  document.title = `Undangan Aqiqah untuk ${decodeURIComponent(to)} — Aqila`;
-  const dear = document.getElementById('dear');
-  if (dear) dear.innerHTML = `Kepada Yth. <span class="font-semibold">${decodeURIComponent(to)}</span>`;
-  const nameInput = document.getElementById('name');
-  if (nameInput) nameInput.value = decodeURIComponent(to);
+/* ====== Base fonts & colors ====== */
+:root{
+  --brand:#0ea5e9;
+  --brand-dark:#0369a1;
+  --soft:#f0f9ff;
+  --ink:#0f172a;
+
+  --fs-base: 1rem;
+  --fs-lg: 1.25rem;
+  --fs-xl: 1.5rem;
+}
+body{
+  font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial;
+  color:var(--ink);
+  margin: 0;
+  padding: 0;
+  font-size: var(--fs-base);
+  line-height: 1.6;
+}
+.serif{font-family:'Playfair Display', serif}
+.script{font-family:'Great Vibes', cursive}
+
+/* ====== Background, hero, ornaments ====== */
+.pattern{
+  background: radial-gradient(ellipse at top left, #e0f2fe 0, transparent 50%),
+              radial-gradient(ellipse at bottom right, #fef9c3 0, transparent 50%),
+              linear-gradient(180deg, #ffffff, #f8fafc);
+  min-height: 100vh;
+}
+.hero{ 
+  background: linear-gradient(to bottom, rgba(2,6,23,.25), rgba(2,6,23,.65)),
+              url('https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  padding:.5rem 1rem;
+  border-radius:9999px;
+  background:rgba(255,255,255,.9);
+  font-size: 0.9rem;
+}
+.glass{ backdrop-filter: blur(8px); background:rgba(255,255,255,.65); }
+.blur-nav{ backdrop-filter:saturate(180%) blur(10px); background:rgba(255,255,255,.7); }
+
+/* ====== Buttons ====== */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.5rem;
+  padding:.75rem 1.25rem;
+  border-radius:1rem;
+  font-weight:600;
+  font-size: 1rem;
+  transition:.2s;
+  cursor: pointer;
+  text-decoration: none;
+}
+.btn-primary{
+  background:var(--brand);
+  color:#fff;
+  box-shadow:0 10px 30px -10px rgba(14,165,233,.7);
+}
+.btn-primary:hover{ background:var(--brand-dark) }
+.btn-outline{ border:1px solid var(--brand-dark); color:var(--brand-dark) }
+.music-btn{
+  position:fixed;
+  right:1rem;
+  bottom:1rem;
+  z-index:50;
 }
 
-// ===== Sticky nav style & reveal on scroll =====
-const nav = document.getElementById('nav');
-function onScroll() {
-  if (window.scrollY > 10) nav?.classList.add('blur-nav'); else nav?.classList.remove('blur-nav');
-  document.querySelectorAll('.reveal').forEach(el=>{
-    const rect = el.getBoundingClientRect();
-    if(rect.top < window.innerHeight - 80) el.classList.add('show');
-  });
-}
-window.addEventListener('scroll', onScroll); onScroll();
+/* ====== Reveal animation ====== */
+.reveal{ opacity:0; transform: translateY(16px); transition: all .7s ease }
+.reveal.show{ opacity:1; transform: translateY(0) }
 
-// ===== Floating petals =====
-const petalsContainer = document.getElementById('petals');
-if (petalsContainer){
-  for(let i=0; i<20; i++){
-    const p = document.createElement('span'); p.className='petal';
-    p.style.left = Math.random()*100 + 'vw';
-    p.style.animationDuration = (8 + Math.random()*6) + 's';
-    p.style.animationDelay = (-Math.random()*8) + 's';
-    p.style.opacity = .3 + Math.random()*0.6;
-    petalsContainer.appendChild(p);
+/* ====== Floating petals ====== */
+.petal{
+  position:absolute;
+  width:10px;
+  height:10px;
+  border-radius:10px;
+  background:#fca5a5;
+  opacity:.7;
+  filter:blur(.2px);
+  animation: float 10s linear infinite;
+}
+@keyframes float{
+  0%{ transform: translateY(-10vh) translateX(0) rotate(0) }
+  100%{ transform: translateY(110vh) translateX(30px) rotate(180deg) }
+}
+
+/* ====== Bismillah kecil ====== */
+h2.serif.bismillah {
+  font-size: 1.5rem;
+}
+
+/* ====== RESPONSIVE DESIGN ====== */
+@media (max-width: 1024px) {
+  .hero {
+    padding: 1.5rem;
+  }
+  .btn {
+    padding: 0.65rem 1rem;
+    font-size: 0.95rem;
   }
 }
 
-// ===== Countdown (event: 27 Sep 2025 10:00 WIB) =====
-const eventTime = new Date('2025-09-27T10:00:00+07:00').getTime();
-const ctn = document.getElementById('countdown');
-function tick(){
-  const now = Date.now();
-  let diff = Math.max(0, eventTime - now);
-  const d = Math.floor(diff/86400000); diff -= d*86400000;
-  const h = Math.floor(diff/3600000); diff -= h*3600000;
-  const m = Math.floor(diff/60000); diff -= m*60000;
-  const s = Math.floor(diff/1000);
-  if (ctn) ctn.textContent = `${d} hari ${h} jam ${m} menit ${s} detik`;
-}
-tick(); setInterval(tick, 1000);
-
-// ===== Share API =====
-const shareBtn = document.getElementById('shareBtn');
-shareBtn?.addEventListener('click', async ()=>{
-  const shareData = { title: document.title, text: 'Undangan Aqiqah Aqila — Sabtu, 27 Sep 2025', url: location.href };
-  if (navigator.share) { try{ await navigator.share(shareData);}catch(e){} }
-  else { await navigator.clipboard.writeText(location.href); shareBtn.textContent='Tautan Disalin'; setTimeout(()=>shareBtn.textContent='Bagikan',1500); }
-});
-
-// ===== Add to Calendar (ICS download) =====
-const calendarBtn = document.getElementById('calendarBtn');
-calendarBtn?.addEventListener('click', ()=>{
-  const pad = n=> String(n).padStart(2,'0');
-  const start = new Date('2025-09-27T10:00:00+07:00');
-  const end = new Date('2025-09-27T12:00:00+07:00');
-  function toICS(dt){
-    const y=dt.getUTCFullYear(); const mo=pad(dt.getUTCMonth()+1); const d=pad(dt.getUTCDate());
-    const h=pad(dt.getUTCHours()); const mi=pad(dt.getUTCMinutes()); const s=pad(dt.getUTCSeconds());
-    return `${y}${mo}${d}T${h}${mi}${s}Z`;
+@media (max-width: 768px) {
+  body {
+    font-size: 0.95rem;
   }
-  const ics = `BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Aqiqah Aqila//ID\nBEGIN:VEVENT\nUID:${Date.now()}@aqiqah-aqila\nDTSTAMP:${toICS(new Date())}\nDTSTART:${toICS(start)}\nDTEND:${toICS(end)}\nSUMMARY:Undangan Aqiqah — Aqila Arumi Khairunnisa\nLOCATION:Jl. Purwodadi No.89, Pekanbaru\nDESCRIPTION:Undangan aqiqah putri kami, Aqila Arumi Khairunnisa.\nEND:VEVENT\nEND:VCALENDAR`;
-  const blob = new Blob([ics], {type:'text/calendar'});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a'); a.href=url; a.download='Aqiqah-Aqila-2025-09-27.ics'; a.click(); URL.revokeObjectURL(url);
-});
+  .hero {
+    padding: 1rem;
+    text-align: center;
+    flex-direction: column;
+  }
+  .badge {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+  .btn {
+    width: 100%;
+    max-width: 280px;
+  }
 
-// ===== RSVP actions (WhatsApp) =====
-const phone = '6281363769937'; // Nomor WA tujuan (tanpa +)
+  /* Tombol Bagikan jadi ikon */
+  #shareBtn {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    font-size: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #shareBtn::before {
+    content: "🔗";
+    font-size: 18px;
+  }
 
-function buildMessage(){
-  const n = document.getElementById('name')?.value || 'Tamu Undangan';
-  const c = document.getElementById('count')?.value || '1';
-  const m = document.getElementById('message')?.value || '';
-  return `Assalamu%27alaikum.%20Saya%20${encodeURIComponent(n)}.%0AIngin%20konfirmasi%20kehadiran%20(${encodeURIComponent(c)}%20orang).%0A${encodeURIComponent(m)}%0A- dikirim dari undangan aqiqah -`;
+  /* Tombol Musik jadi ikon */
+  .music-btn {
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    font-size: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 0.5rem;
+    right: 0.5rem;
+  }
+  .music-btn::before {
+    content: "🎵";
+    font-size: 18px;
+  }
 }
-document.getElementById('waBtn')?.addEventListener('click', ()=>{
-  const url = `https://wa.me/6281363769937?text=${buildMessage()}`;
-  window.open(url, '_blank');
-});
 
-// ===== Music toggle =====
-const bgm = document.getElementById('bgm');
-const musicToggle = document.getElementById('musicToggle');
-let playing = false;
-musicToggle?.addEventListener('click', async ()=>{
-  try{
-    if(!playing){ await bgm.play(); playing=true; musicToggle.textContent='⏸ Musik'; }
-    else { bgm.pause(); playing=false; musicToggle.textContent='♫ Musik'; }
-  }catch(e){ alert('Tambahkan file musik di tag <audio> untuk mengaktifkan.'); }
-});
-
-// ===== Smooth scroll for anchor links =====
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click', e=>{
-    const id = a.getAttribute('href');
-    if(id && id.length>1){
-      e.preventDefault();
-      document.querySelector(id)?.scrollIntoView({behavior:'smooth'});
-    }
-  });
-});
+@media (max-width: 480px) {
+  body {
+    font-size: 0.9rem;
+  }
+  .hero {
+    padding: 0.75rem;
+  }
+  .btn {
+    font-size: 0.9rem;
+    padding: 0.6rem 0.9rem;
+  }
+}
